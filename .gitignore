@@ -1,0 +1,4 @@
+out/
+dist/
+dastore-emu/WEB-INF/appengine-generated/
+*.bin

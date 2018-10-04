@@ -1,0 +1,135 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "I+0z7NpNxjg5QT2ES+cIQQz1u+o=",
+			"path": "cryptopepe.io/cryptopepe-reader/pepe",
+			"revision": "8a11fa01aa68560e3607bfd913a8bd953c6f3134",
+			"revisionTime": "2018-07-14T18:15:44Z"
+		},
+		{
+			"checksumSHA1": "za06DHVWJP2qJ2BbH2Usa3g/8lk=",
+			"path": "cryptopepe.io/cryptopepe-svg/builder",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "X/ErqHwXWwIAxkLkgkKLR1qY/w0=",
+			"path": "cryptopepe.io/cryptopepe-svg/builder/look",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "z/vW7u3aHJf0sIbFSb5q2CNp0hU=",
+			"path": "cryptopepe.io/cryptopepe-svg/builder/tmpl",
+			"revision": "58659bfe4d0be4b4c0974c3400c4c5360d2e2b97",
+			"revisionTime": "2018-09-06T06:21:32Z",
+			"tree": true
+		},
+		{
+			"checksumSHA1": "l56vURlq/wfKmKmT6ftqlllDH/w=",
+			"origin": "cryptopepe.io/cryptopepe-reader/vendor/github.com/ethereum/go-ethereum/common",
+			"path": "github.com/ethereum/go-ethereum/common",
+			"revision": "c2dbd09cbf70b01363eae0ee33e5f40cd69bcdc6",
+			"revisionTime": "2018-06-07T23:01:41Z"
+		},
+		{
+			"checksumSHA1": "tMtGtURWx29lWZYsLtLOQaPvGqs=",
+			"origin": "cryptopepe.io/cryptopepe-reader/vendor/github.com/ethereum/go-ethereum/common/hexutil",
+			"path": "github.com/ethereum/go-ethereum/common/hexutil",
+			"revision": "c2dbd09cbf70b01363eae0ee33e5f40cd69bcdc6",
+			"revisionTime": "2018-06-07T23:01:41Z"
+		},
+		{
+			"checksumSHA1": "pQzUVRi0z/3Z4FpRyExSg1ROLSA=",
+			"origin": "cryptopepe.io/cryptopepe-reader/vendor/github.com/ethereum/go-ethereum/crypto/sha3",
+			"path": "github.com/ethereum/go-ethereum/crypto/sha3",
+			"revision": "c2dbd09cbf70b01363eae0ee33e5f40cd69bcdc6",
+			"revisionTime": "2018-06-07T23:01:41Z"
+		},
+		{
+			"checksumSHA1": "g/V4qrXjUGG9B+e3hB+4NAYJ5Gs=",
+			"path": "github.com/gorilla/context",
+			"revision": "08b5f424b9271eedf6f9f0ce86cb9396ed337a42",
+			"revisionTime": "2016-08-17T18:46:32Z"
+		},
+		{
+			"checksumSHA1": "gzYAE/UJ+G7yTqkdJAMActxDdxw=",
+			"path": "github.com/gorilla/mux",
+			"revision": "c0091a029979286890368b4c7b301261e448e242",
+			"revisionTime": "2018-01-20T07:58:19Z"
+		},
+		{
+			"checksumSHA1": "qpEpl35oKsn3zTKgfVPF4i8+qio=",
+			"origin": "cryptopepe.io/cryptopepe-reader/vendor/github.com/lucasb-eyer/go-colorful",
+			"path": "github.com/lucasb-eyer/go-colorful",
+			"revision": "c2dbd09cbf70b01363eae0ee33e5f40cd69bcdc6",
+			"revisionTime": "2018-06-07T23:01:41Z"
+		},
+		{
+			"checksumSHA1": "OeS7cUI7tvEFhl9MgGbIYYjdjAw=",
+			"origin": "cryptopepe.io/cryptopepe-svg/builder/vendor/github.com/tdewolff/minify",
+			"path": "github.com/tdewolff/minify",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "n2y1GbJeYUnC9ILcgMBYhgymxho=",
+			"origin": "cryptopepe.io/cryptopepe-svg/builder/vendor/github.com/tdewolff/minify/css",
+			"path": "github.com/tdewolff/minify/css",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "mjqh5Zfz+qaM5G3gdxDUodW3oEw=",
+			"origin": "cryptopepe.io/cryptopepe-svg/builder/vendor/github.com/tdewolff/minify/svg",
+			"path": "github.com/tdewolff/minify/svg",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "ytbPF6rJvRmYqFuiU5bWxMjnxJ0=",
+			"origin": "cryptopepe.io/cryptopepe-svg/builder/vendor/github.com/tdewolff/parse",
+			"path": "github.com/tdewolff/parse",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "bFczQeEt4V5STOU9jd9rHxnyAD0=",
+			"origin": "cryptopepe.io/cryptopepe-svg/builder/vendor/github.com/tdewolff/parse/buffer",
+			"path": "github.com/tdewolff/parse/buffer",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "Uh+YXWjy9UiFwu6QqOlbSMHbgXg=",
+			"origin": "cryptopepe.io/cryptopepe-svg/builder/vendor/github.com/tdewolff/parse/css",
+			"path": "github.com/tdewolff/parse/css",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "IrorTJ5lfYWU5QdWqMuLexxzoYA=",
+			"origin": "cryptopepe.io/cryptopepe-svg/builder/vendor/github.com/tdewolff/parse/strconv",
+			"path": "github.com/tdewolff/parse/strconv",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "FetcW0ezJKXbXcsYISUTpt3CNPU=",
+			"origin": "cryptopepe.io/cryptopepe-svg/builder/vendor/github.com/tdewolff/parse/svg",
+			"path": "github.com/tdewolff/parse/svg",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		},
+		{
+			"checksumSHA1": "DYTiA9sTLaNHTecu+WyO6YOkN4I=",
+			"origin": "cryptopepe.io/cryptopepe-svg/builder/vendor/github.com/tdewolff/parse/xml",
+			"path": "github.com/tdewolff/parse/xml",
+			"revision": "ad710f2bcc71c0256cb7acf0b0ebde96f65b33a6",
+			"revisionTime": "2018-06-07T22:55:10Z"
+		}
+	],
+	"rootPath": "cryptopepe.io/cryptopepe-svg-preview"
+}
