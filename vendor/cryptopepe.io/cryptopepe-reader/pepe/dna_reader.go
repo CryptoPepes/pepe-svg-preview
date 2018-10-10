@@ -1,24 +1,19 @@
 package pepe
 
 import (
-	"fmt"
 	"cryptopepe.io/cryptopepe-svg/builder/look"
+	"math/big"
 )
 
 // 2 sets; 1 from mother, 1 from father.
-// 2 chromosomes.
-// A chromosome consists of 4 inner-parts.
-// Each part is 32 bits.
-//
-// Total bits available for genes: 2 * 4 * 32 = 256 (or 128 per chromosome)
-// 2 sets of them, to implement dominant/recessive expression.
-type PepeDNA [2][2][4]uint32
+// each side is 256 bits; 4x 64 bits
+type PepeDNA [2]*big.Int
 
 type ChromosomeIndex uint8
 
 type Locus struct {
-	Start uint16
-	Len uint16
+	Start uint
+	Len uint
 }
 
 
@@ -47,55 +42,33 @@ var indexedGenes = map[ChromosomeIndex]map[Locus]GeneExpressor{
 	},
 }
 
+const chromosomeSize = 128
+
 func (dna *PepeDNA) ParsePepeDNA() *look.PepeLook {
 	pepeLook := new(look.PepeLook)
 
+
 	//read DNA, updating pepeLook
 	for chromIndex, locii := range indexedGenes {
-		chromDNA_a := dna[0][chromIndex]
-		chromDNA_b := dna[1][chromIndex]
+
 		for locus, geneExpressor := range locii {
-			outer := locus.Start >> 5
-			inner := locus.Start - (outer << 5)
-
-			//get the dna part, may overlap with next inner
-			innerDNA_a := chromDNA_a[outer] << inner
-			innerDNA_b := chromDNA_b[outer] << inner
-			locusEnd := inner + locus.Len
-			firstLen := locus.Len
-			if locusEnd > 32 {
-				firstLen = 32 - inner
-			}
-			secondLen := locusEnd - 32
-			//next inner may be part of the gene too. (not every gene is 32 bit aligned)
-			if secondLen > 0 {
-				if outer + 1 >= uint16(len(chromDNA_a)) {
-					//Gene locus is invalid! It exceeds the chromosome space
-					fmt.Println("Warning, Invalid gene! locus exceeds chromosome length!")
-					//Just ignore the gene, "" will make the renderer default on something.
-					continue
-				}
-				if locus.Len > 32 {
-					//Gene locus is invalid! Too long!
-					fmt.Println("Warning, Invalid gene! locus is too long!")
-					//Just ignore the gene, "" will make the renderer default on something.
-					continue
-				}
-				innerDNA_a |= (chromDNA_a[outer + 1] >> (32 - secondLen)) << (32 - firstLen)
-				innerDNA_b |= (chromDNA_b[outer + 1] >> (32 - secondLen)) << (32 - firstLen)
-			} else {
-				// cannot be negative
-				secondLen = 0
-			}
-
-			//mask: make sure that the expressor only sees the relevant part of the dna data.
-			innerDNA_a = (innerDNA_a >> (32 - locus.Len)) & ((uint32(1) << locus.Len) - 1)
-			innerDNA_b = (innerDNA_b >> (32 - locus.Len)) & ((uint32(1) << locus.Len) - 1)
+			// The locii definitions are split up into chromosomes, but the data representation is just one bitstring
+			// Calculate the offset of this chromosome, to get the DNA parts that we need
+			offset := uint(chromIndex) * chromosomeSize
+			// Pre-calculate the bitmask used to isolate the bits of the gene
+			mask := (uint64(1) << locus.Len) - 1
+			// Get the left side DNA, with the gene aligned to the right
+			left := new(big.Int).Rsh(dna[0], offset + (chromosomeSize - (locus.Start + locus.Len)))
+			// Mask it, and store as a 32 bit integer (genes can be 32 bits long maximum)
+			geneLeft := uint32(left.Uint64() & mask)
+			// Same for right side of the DNA
+			right := new(big.Int).Rsh(dna[1], offset + (chromosomeSize - (locus.Start + locus.Len)))
+			geneRight := uint32(right.Uint64() & mask)
 
 			//express genes
-			geneExpressor(innerDNA_a, pepeLook)
+			geneExpressor(geneLeft, pepeLook)
 			//recessive results for b will not overwrite those of a, dominant will.
-			geneExpressor(innerDNA_b, pepeLook)
+			geneExpressor(geneRight, pepeLook)
 		}
 	}
 
@@ -195,11 +168,17 @@ func ResolveLookConflicts(pepeLook *look.PepeLook) {
 	}
 	if pepeLook.Head.Hair.HairType == "hair>chaplin" ||
 		pepeLook.Head.Hair.HairType == "hair>bun_beard" ||
-		pepeLook.Head.Hair.HairType == "hair>mcaffee" {
+		pepeLook.Head.Hair.HairType == "hair>mcafee" {
 		if !isSimpleMouth(pepeLook.Head.Mouth) {
 			pepeLook.Head.Mouth = "mouth>basic_lips"
 		}
 	}//
+	if pepeLook.Body.Shirt.ShirtType == "shirt>vitalik_shirt" {
+		// Vitalik shirt already has hands
+		if pepeLook.Head.Mouth == "mouth>drink_wine" || pepeLook.Head.Mouth == "mouth>drink_coffee" {
+			pepeLook.Head.Mouth = "mouth>basic_lips"
+		}
+	}
 	if pepeLook.Body.Shirt.ShirtType == "shirt>pepemon" {
 		pepeLook.Head.Hair.HairType = "none"
 		pepeLook.Body.Neck = "none"

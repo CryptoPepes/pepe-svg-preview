@@ -3,10 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "I+0z7NpNxjg5QT2ES+cIQQz1u+o=",
+			"checksumSHA1": "b+hYFkbe6WkzFh5VMO3RVlDZpKw=",
 			"path": "cryptopepe.io/cryptopepe-reader/pepe",
-			"revision": "8a11fa01aa68560e3607bfd913a8bd953c6f3134",
-			"revisionTime": "2018-07-14T18:15:44Z"
+			"revision": "652eadc28bc73a8b05aea686f2e63689530633e0",
+			"revisionTime": "2018-10-10T04:23:44Z"
 		},
 		{
 			"checksumSHA1": "za06DHVWJP2qJ2BbH2Usa3g/8lk=",
@@ -21,10 +21,10 @@
 			"revisionTime": "2018-06-07T22:55:10Z"
 		},
 		{
-			"checksumSHA1": "z/vW7u3aHJf0sIbFSb5q2CNp0hU=",
+			"checksumSHA1": "h5ieYE0AY66H+j405jyFwI2d7SI=",
 			"path": "cryptopepe.io/cryptopepe-svg/builder/tmpl",
-			"revision": "58659bfe4d0be4b4c0974c3400c4c5360d2e2b97",
-			"revisionTime": "2018-09-06T06:21:32Z",
+			"revision": "2a0630ddc542bc4080c95b41edfff2c558cc1636",
+			"revisionTime": "2018-10-10T04:40:30Z",
 			"tree": true
 		},
 		{

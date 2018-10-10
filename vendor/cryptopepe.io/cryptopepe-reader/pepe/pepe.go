@@ -7,12 +7,11 @@ import (
 
 type Pepe struct {
 	Master        common.Address
-	Genotype      [2][2][4]uint32
+	Genotype      [2]*big.Int
 	CanCozyAgain  uint64
 	Generation    uint64
 	Father        *big.Int
 	Mother        *big.Int
 	PepeName      [32]byte
-	BirthTime     *big.Int
 	CoolDownIndex uint8
 }

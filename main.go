@@ -73,17 +73,18 @@ func parsePepeId(w http.ResponseWriter, r *http.Request) (*big.Int, bool) {
 	return pepeId, true
 }
 
+var sh256bit *big.Int
+func init() {
+	sh256bit = big.NewInt(1)
+	sh256bit.Lsh(sh256bit, 256)
+}
 func getPepeDna(pepeId int64) *pepe.PepeDNA {
 	rngSrc := rand.NewSource(pepeId)
 	rng := rand.New(rngSrc)
 
 	dna := pepe.PepeDNA{}
-	for i := 0; i < 2; i++ {
-		for j := 0; j < 4; j++ {
-			dna[0][i][j] = rng.Uint32()
-			dna[1][i][j] = rng.Uint32()
-		}
-	}
+	dna[0] = new(big.Int).Rand(rng, sh256bit)
+	dna[1] = new(big.Int).Rand(rng, sh256bit)
 	return &dna
 }
 
